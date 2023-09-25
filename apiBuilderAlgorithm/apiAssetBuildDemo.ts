@@ -42,7 +42,7 @@ const password = 'Qweqwe$123';
                 const jobInfo = await getJobInfo(createJob._id, createJob.SK, bearerToken);
                 status = jobInfo.status;
                 console.log(`CreateContent status: `, status);
-            } catch (ex) {
+            } catch (ex: any) {
                 if (ex.response.status === 502) {
                     timeout += 500;
                     continue;
