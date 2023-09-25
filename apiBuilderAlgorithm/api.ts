@@ -33,7 +33,6 @@ export const requestFileUploadUrl = async (fileName: string, bearerToken: string
 export const uploadAssetsAsJson = async (url: string, assets: IAssetRequest[]) => {
     const json = JSON.stringify({ assets });
     const response = await axios.put(url, Buffer.from(json), { headers: { 'Content-Type': 'application/json' } });
-    console.log(response.status);
     // console.log(response);
 }
 

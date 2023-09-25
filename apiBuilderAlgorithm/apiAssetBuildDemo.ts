@@ -9,8 +9,8 @@ const password = 'Qweqwe$123';
     try {
         const bearerToken = await getBearerToken(email, password);
 
-        console.log('Bearer: ', bearerToken, '\n');
-
+        //choose landId from list of your metaverses
+        //showMyMetaverses.ts - to log list
         const landId = 'Land-33092140-cc78-4f17-8dfc-013031ef781b';
 
         const assetsToBuild = [...getRoof(), ...getFloor(), ...getMiddleCol(), ...getHelix(), ...getHelix(true)];
@@ -31,16 +31,24 @@ const password = 'Qweqwe$123';
         }
 
         const createJob = await createLandAssetsFromConfig(landId, fileData._id, bearerToken);
+        console.log('Create content job key: ', { _id: createJob._id, SK: createJob.SK });
 
         let status: string | undefined = undefined;
+        let timeout = 1000;
         do {
             await new Promise(resolve => setTimeout(resolve, 1000));
-            const jobInfo = await getJobInfo(createJob._id, createJob.SK, bearerToken);
-            status = jobInfo.status;
-            console.log(`CreateContent status: `, status);
+            timeout += 200;
+            try {
+                const jobInfo = await getJobInfo(createJob._id, createJob.SK, bearerToken);
+                status = jobInfo.status;
+                console.log(`CreateContent status: `, status);
+            } catch (ex) {
+                if (ex.response.status === 502) {
+                    timeout += 500;
+                    continue;
+                }
+            }
         } while (status === 'Queued' || status === 'InProgress');
-
-        console.log(status);
     } catch (ex) {
         console.log(ex);
     }
