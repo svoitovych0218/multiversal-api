@@ -10,6 +10,7 @@ Then if you want to cleanup previous content you should use following script.
 node --loader ts-node/esm apiBuilderAlgorythm/cleanup.ts
 
 make sure you receive a completed result
+
 ![image](https://github.com/svoitovych0218/multiversal-api/assets/25226807/a6dbd1cc-acfb-4865-b533-faa2d8394d40)
 
 And the main script to build some assets into metaverse
