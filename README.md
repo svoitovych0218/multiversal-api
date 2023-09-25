@@ -14,7 +14,7 @@ node --loader ts-node/esm apiBuilderAlgorithm/cleanup.ts
 ```
 make sure you receive a completed result
 
-![image](https://github.com/svoitovych0218/multiversal-api/assets/25226807/a6dbd1cc-acfb-4865-b533-faa2d8394d40)
+![image](https://github.com/svoitovych0218/multiversal-api/assets/25226807/cbe25cca-f0f8-41c0-b121-529fe7716362)
 
 And the main script to build some assets into metaverse
 ```
