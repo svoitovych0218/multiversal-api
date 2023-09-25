@@ -23,3 +23,6 @@ node --loader ts-node/esm apiBuilderAlgorithm/apiAssetBuildDemo.ts
 ![image](https://github.com/svoitovych0218/multiversal-api/assets/25226807/f3cd225d-3018-44c7-be3e-e51b7cd8fc7c)
 
 Make sure, if you already have some content in metaverse it will be appended. To rewrite content - please cleanup metaverse firstly.
+
+And short video demonstration
+https://app.screencast.com/YAlMmV9VYwXkE
