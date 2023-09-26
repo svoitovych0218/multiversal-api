@@ -115,6 +115,8 @@ export const getMiddleCol = () => {
 }
 
 export const getHelix = (opposite: boolean = false) => {
+    //https://docs.google.com/spreadsheets/d/1w80gfLpTa63wfZd2weSij8_eKe9-YMVPkFp4o1ybsEQ/edit?usp=sharing
+    //you can choose any combination of inventory items from this list
     const key = {
         _id: 'General-Builder-Inventory',
         SK: 'Inventory-Item-8901bca8-cefc-4e9b-8336-fe7aa33bba97'
