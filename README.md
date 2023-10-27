@@ -1,6 +1,6 @@
 # multiversal-api
 
-Firstly you need to choose the metaverse you are goint to building in.
+Firstly you need to choose the metaverse you are going to be building in.
 
 ```
 node --loader ts-node/esm apiBuilderAlgorithm/showMyMetaverses.ts
