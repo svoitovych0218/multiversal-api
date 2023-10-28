@@ -50,3 +50,8 @@ export const getMyMetaverses = async (bearerToken: string) => {
     const res = await axios.get(`${baseUrl}/my-lands`, { headers: { Authorization: `Bearer ${bearerToken}` } });
     return res.data.data.lands;
 }
+
+export const getGeneralInventoryItems = async (bearerToken: string) => {
+    const res = await axios.get(`${baseUrl}/user/inventory-items?generalInventory=true`, { headers: { Authorization: `Bearer ${bearerToken}` } });
+    return res.data.data.items;
+}
