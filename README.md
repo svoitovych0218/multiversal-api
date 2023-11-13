@@ -28,7 +28,7 @@ https://app.screencast.com/YAlMmV9VYwXkE
 
 The script to fill the metaverse space via modrian algorithm
 ```
-node --loader ts-node/esm apiBuilderAlgorithm/apiAssetBuildDemo.ts helux
+node --loader ts-node/esm apiBuilderAlgorithm/apiAssetBuildDemo.ts modrian
 ```
 
 https://app.screencast.com/sCp8OZDhOtcIe
