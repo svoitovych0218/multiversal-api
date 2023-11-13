@@ -1,11 +1,22 @@
 import { getHelix, getFloor, getMiddleCol, getRoof } from './algo';
-import { ConsoleColors, IFileInfo } from './types';
+import { ConsoleColors, IAssetRequest, IFileInfo } from './types';
 import { createLandAssetsFromConfig, getBearerToken, getFileStatus, getJobInfo, requestFileUploadUrl, uploadAssetsAsJson } from './api';
+import { mondrianAlgorithm } from './mondrianAlgorithm';
+import { email, password } from './credentials';
 
-const email = 'seoseo0218@gmail.com';
-const password = 'Qweqwe$123';
+enum Algo {
+    Helux = 'helux',
+    Modrian = 'modrian'
+}
 
 (async () => {
+    const args = process.argv.slice(2);
+    if (!Object.values(Algo).some(s => s === args[0])) {
+        console.log(`Wrong algorithm selected, please use one of: ${Object.values(Algo).join(', ')}`);
+        return;
+    }
+    const algo = args[0] as Algo;
+
     try {
         const bearerToken = await getBearerToken(email, password);
 
@@ -13,7 +24,17 @@ const password = 'Qweqwe$123';
         //showMyMetaverses.ts - to log list
         const landId = 'Land-33092140-cc78-4f17-8dfc-013031ef781b';
 
-        const assetsToBuild = [...getRoof(), ...getFloor(), ...getMiddleCol(), ...getHelix(), ...getHelix(true)];
+        const assetsToBuild: IAssetRequest[] = [];
+        if (algo === Algo.Helux) {
+            // Helux algorithm
+            const assets = [...getRoof(), ...getFloor(), ...getMiddleCol(), ...getHelix(), ...getHelix(true)];
+            assetsToBuild.push(...assets);
+        } else if (algo === Algo.Modrian) {
+            //mondarian algorithm adjusted to 3D space generation
+            const assets = mondrianAlgorithm(1000000, 6);
+            assetsToBuild.push(...assets);
+        }
+
 
         const fileData = await requestFileUploadUrl('MyMetaverseConfig.json', bearerToken);
         await uploadAssetsAsJson(fileData.uploadUrl, assetsToBuild);
