@@ -37,3 +37,10 @@ Make sure, if you already have some content in metaverse it will be appended. To
 
 List of inventory items you can use to build with API
 https://docs.google.com/spreadsheets/d/1w80gfLpTa63wfZd2weSij8_eKe9-YMVPkFp4o1ybsEQ/edit?usp=sharing
+
+Also there is API to receive inventory items as JSON
+```
+node --loader ts-node/esm apiBuilderAlgorithm/showGeneralInventoryItems.ts
+```
+![image](https://github.com/svoitovych0218/multiversal-api/assets/25226807/47201afa-3de7-4676-9203-717b9cbbc86f)
+
